@@ -1,0 +1,24 @@
+int gridsize = 3;
+int gapsize;
+
+void setup(){
+  size(400,400);
+  gapsize = floor(width / gridsize);
+  background(128);
+  
+  for (int i = 1; i< gridsize; i++)
+    line(0,gapsize * i,width, gapsize * i);
+    
+  for (int i = 1; i<gridsize; i++)
+    line(gapsize * i, 0, gapsize * i, width);
+}
+
+void draw() {
+  if (mousePressed){
+    int whichX =floor(mouseX/gapsize);
+	int whichY = floor(mousey/gapsize);
+	fill(random(255),0,0)
+    ellipse(whichX*gapsize+0.5*gapsize,
+		whichY*gapsize+0.5*gapsize, gapsize, gapsize);
+  }
+}
